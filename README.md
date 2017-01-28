@@ -1,2 +1,1 @@
-# mongodb-sample
-Simple Students CRUD application using nodejs express and mongodb
+CRUD using MongooseJS + User login and Registration System using PassportJS and Express Session
