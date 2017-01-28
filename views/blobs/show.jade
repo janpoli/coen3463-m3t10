@@ -1,0 +1,50 @@
+extends ../layout
+
+block content
+  section#contact.contactus.margin-top-120
+    .container
+      .row
+        .col-sm-12
+          .main_contact.sections
+            .head_title.text-center
+              h1 Event Data
+            .row
+              .contact_contant
+                .col-sm-8.col-xs-12
+                  .single_contant_left
+                       // <div class="col-lg-8 col-md-8 col-sm-10 col-lg-offset-2 col-md-offset-2 col-sm-offset-1">
+                      table.table
+                        thead
+                          tr
+                            th Event Name
+                            td #{blob.events_name} 
+                          tr                          
+                        tbody
+                            th Date
+                            td #{blob.events_date} 
+                          tr
+                            th Day
+                            td #{blob.events_day} 
+                          tr
+                            th Category
+                            td #{blob.events_cat} 
+                          tr
+                            th Type
+                            td #{blob.events_typ} 
+                          tr
+                            th Create Date
+                            td #{blob.dob} 
+
+
+                // End of col-sm-6
+                .col-sm-4.col-xs-12
+                  
+                    a(href='/blobs/#{blob._id}/edit')
+                        i.fa.fa-edit.fa-2x Edit 
+
+                    form.form-inline(action='/blobs/#{blob._id}/edit',method='post',enctype='application/x-www-form-urlencoded')
+                      .form-group
+                      input.form-control(type='hidden',value='DELETE',name='_method')
+                      button.btn.btn-outline-danger(type='submit') Delete
+
+
