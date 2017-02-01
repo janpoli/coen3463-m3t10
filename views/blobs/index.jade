@@ -1,0 +1,22 @@
+extends ../layout
+
+block content
+  section#contact.contactus.margin-top-120
+    .container
+      .row
+        .col-sm-12
+          .main_contact.sections
+            .head_title.text-center.margin-bottom-40
+              h1 Events List
+            .row
+              .panel-body.text-center
+                ul.list-group
+                 for blob in blobs
+                  li.list-group-item
+                   a(href='/blobs/#{blob._id}') #{blob.events_name}
+                   
+                   p #{blob.events_date} | #{blob.events_day}
+            .row
+              .p.text-center
+                a.btn.btn-default.width-5(href='/blobs/new') +
+

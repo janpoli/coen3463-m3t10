@@ -1,0 +1,85 @@
+extends ../layout
+
+block content
+  section#contact.contactus.margin-top-120
+    .container
+      .row
+        .col-sm-12
+          .main_contact.sections
+            .head_title.text-center.margin-top-50
+              h1 Update Event
+            .row
+              .contact_contant
+                .col-sm-6.col-xs-12
+                  img(src='/./assets/images/calendar.jpg')
+                // End of col-sm-6
+                .col-sm-6.col-xs-12
+                  .single_contant_left
+                    form(action='/blobs/#{blob._id}/edit',method='post',name='updateblob',enctype='application/x-www-form-urlencoded')
+                      // <div class="col-lg-8 col-md-8 col-sm-10 col-lg-offset-2 col-md-offset-2 col-sm-offset-1">
+                      .form-group
+                        label event name 
+                        input#inputName.form-control(type="text", value='#{blob.events_name}', name="events_name")
+                      .form-group
+                        label date 
+                        input#inputDate.form-control(type="number", value='#{blob.events_date}', name="events_date")
+                      .form-group
+                        label day 
+                        input#inputDay.form-control(type="text", value='#{blob.events_day}', name="events_day")
+                      .form-group
+                        label category
+                        input#inputCategory.form-control(type="text", value='#{blob.events_cat}', name="events_cat")
+                      .form-group
+                        label type
+                        input#inputType.form-control(type="text", value='#{blob.events_typ}', name="events_typ")
+                      .form-group
+                        label create date
+                        input#inputDob.form-control(type='date', value='#{blob.dob}', name="dob")
+                                         
+                      p
+                      input(type='hidden',value='PUT',name='_method')
+                      input.btn(type="submit", value="submit")
+                      // </div>
+
+extends ../layout
+
+block content
+  section#contact.contactus.margin-top-120
+    .container
+      .row
+        .col-sm-12
+          .main_contact.sections
+            .head_title.text-center.margin-top-50
+              h1 Add New Event
+            .row
+              .contact_contant
+                .col-sm-6.col-xs-12
+                  img(src='/./assets/images/calendar.jpg')
+                // End of col-sm-6
+                .col-sm-6.col-xs-12
+                  .single_contant_left
+                    form#formAddBlob(name="addblob",method="post",action="/blobs")
+                      // <div class="col-lg-8 col-md-8 col-sm-10 col-lg-offset-2 col-md-offset-2 col-sm-offset-1">
+                      .form-group
+                        label event name 
+                        input#inputName.form-control(type="text", name="events_name")
+                      .form-group
+                        label date 
+                        input#inputDate.form-control(type="number", name="events_date")
+                      .form-group
+                        label day 
+                        input#inputDay.form-control(type="text", name="events_day")
+                      .form-group
+                        label category
+                        input#inputCategory.form-control(type="text", name="events_cat")
+                      .form-group
+                        label type
+                        input#inputType.form-control(type="text", name="events_typ")
+                      .form-group
+                        label create date
+                        input#inputDob.form-control(type='date', name="dob")
+                                         
+                      p
+                      input.btn(type="submit", value="submit")
+                      // </div>
+

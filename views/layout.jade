@@ -1,0 +1,121 @@
+doctype html
+//
+  if lt IE 7html.no-js.lt-ie9.lt-ie8.lt-ie7(lang='')
+//
+  if IE 7html.no-js.lt-ie9.lt-ie8(lang='')
+//
+  if IE 8html.no-js.lt-ie9(lang='')
+//if gt IE 8
+  | [if gt IE 8]
+html.no-js(lang='')
+  // <![endif]
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge,chrome=1')
+    title 2017 Events and Holidays
+    meta(name='description', content='')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    link(rel='apple-touch-icon', href='apple-touch-icon.png')
+    // Google fonts links
+    link(href='https://fonts.googleapis.com/css?family=Montserrat:400,700', rel='stylesheet')
+    link(rel='stylesheet', href='/./assets/css/fonticons.css')
+    link(rel='stylesheet', href='/./assets/css/slider-pro.css')
+    // <link rel="stylesheet" href="./assets/css/stylesheet.css">
+    link(rel='stylesheet', href='/./assets/css/font-awesome.min.css')
+    link(rel='stylesheet', href='/./assets/css/bootstrap.min.css')
+    // For Plugins external css
+    link(rel='stylesheet', href='/./assets/css/plugins.css')
+    // Theme custom css
+    link(rel='stylesheet', href='/./assets/css/style.css')
+    // Theme Responsive css
+    link(rel='stylesheet', href='/./assets/css/responsive.css')
+    script(src='/./assets/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js')
+      body(data-spy='scroll', data-target='.navbar-collapse')
+    //
+      if lt IE 8
+      p.browserupgrade
+      | You are using an
+      strong outdated
+      |  browser. Please
+      a(href='http://browsehappy.com/') upgrade your browser
+      |  to improve your experience.
+    .preloader
+      .loaded  
+    header#main_menu.header.navbar-fixed-top
+      .main_menu_bg
+        .container
+          .row
+            .nave_menu
+              nav#navmenu.navbar.navbar-default
+                .container-fluid
+                  // Brand and toggle get grouped for better mobile display
+                  .navbar-header
+                    button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#bs-example-navbar-collapse-1', aria-expanded='false')
+                      span.sr-only Toggle navigation
+                      span.icon-bar
+                      span.icon-bar
+                      span.icon-bar
+                    a.navbar-brand(href='/')
+                      img(src='/./assets/images/logo.png')
+                  // Collect the nav links, forms, and other content for toggling
+                  #bs-example-navbar-collapse-1.collapse.navbar-collapse
+                    ul.nav.navbar-nav.navbar-right
+                      li
+                        a(href='/') Home |
+                      li
+                        a(href='/blobs') Event List |
+                      li
+                        a(href='/blobs/new') Add Event |
+                      li
+                        a(href='/auth/logout') Logout |
+
+  body
+    block content
+
+    // footer Section
+    footer#footer.footer
+      .container
+        .main_footer
+          .row
+            .col-sm-12
+              .copyright_text.text-center
+                p.wow.fadeInRight(data-wow-duration='1s')
+                  | By Team 10 
+                  i.fa.fa-heart
+                  |  @ 
+                  a(target='_blank', href='https://github.com/yaneetanyag/module3') Github
+                  |  Policarpio || Tanyag
+      // End of container
+    // End of footer
+    // START SCROLL TO TOP
+    .scrollup
+      a(href='#')
+        i.fa.fa-chevron-up
+    script(src='/./assets/js/vendor/jquery-1.11.2.min.js')
+    script(src='/./assets/js/vendor/bootstrap.min.js')
+    script(src='/./assets/js/jquery.easing.1.3.js')
+    script(src='/./assets/js/masonry/masonry.min.js')
+    script(type='/./text/javascript').
+      $('.mixcontent').masonry();
+    script(src='/./assets/js/jquery.sliderPro.min.js')
+    script(type='text/javascript').
+      $(document).ready(function ($) {
+      $('#example3').sliderPro({
+      width: 960,
+      height: 200,
+      fade: true,
+      arrows: false,
+      buttons: true,
+      fullScreen: false,
+      shuffle: true,
+      smallSize: 500,
+      mediumSize: 1000,
+      largeSize: 3000,
+      thumbnailArrows: true,
+      autoplay: false,
+      thumbnailsContainerSize: 960
+      });
+      });
+    script(src='/./assets/js/plugins.js')
+    script(src='/./assets/js/main.js')
+
