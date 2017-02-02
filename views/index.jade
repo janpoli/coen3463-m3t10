@@ -5,6 +5,7 @@ html
     title Events 2017 | Welcome
     link(href='https://fonts.googleapis.com/css?family=Titillium+Web:400,300,600', rel='stylesheet', type='text/css')
     link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css')
+    link(rel='stylesheet', href='assets/css/bootstrap.min.css')
     link(rel='stylesheet', href='css/style.css')
   body
     .form
@@ -13,6 +14,31 @@ html
           a(href='#signup') Sign Up
         li.tab.active
           a(href='#login') Log In
+      if(errors != "")
+        .alert.alert-danger.alert-dismissable(role='alert')
+          button.close(type='button', data-dismiss='alert', aria-label='Close')
+            span(aria-hidden='true') x
+          strong Warning! 
+          for error in errors
+            | #{error.msg}. 
+      if(success_msg != "")
+        .alert.alert-success.alert-dismissable(role='alert')
+          button.close(type='button', data-dismiss='alert', aria-label='Close')
+            span(aria-hidden='true') x
+          strong Success! 
+            | #{success_msg}
+      if(error_msg != "")
+        .alert.alert-danger.alert-dismissable(role='alert')
+          button.close(type='button', data-dismiss='alert', aria-label='Close')
+            span(aria-hidden='true') x
+          strong Warning! 
+            | #{error_msg}
+      if(error != "")
+        .alert.alert-danger.alert-dismissable(role='alert')
+          button.close(type='button', data-dismiss='alert', aria-label='Close')
+            span(aria-hidden='true') x
+          strong Warning! 
+            | #{error.message}
       .tab-content
         #login
           if (user)
@@ -30,12 +56,12 @@ html
                 label
                   | Username
                   span.req *
-                input#username.form-control(type='text', required='', autocomplete='off', name="username")
+                input#username(type='text', required='', autocomplete='off', name="username")
               .field-wrap
                 label
                   | Password
                   span.req *
-                input#password.form-control(type='password', required='', autocomplete='off', name="password")
+                input#password(type='password', required='', autocomplete='off', name="password")
               //-p.forgot
                 a(href='#') Forgot Password?-//
               button.button.button-block(type='submit') Log In
@@ -48,30 +74,31 @@ html
               label
                 | First Name
                 span.req *
-              input#firstname.form-controlinput(name="name", type='text', required='', autocomplete='off')
+              input#firstname(name="name", type='text', required='', autocomplete='off')
             .field-wrap
               label
                 | Email Adress
                 span.req *
-              input#email.form-control(name="email", type='email', required='', autocomplete='off', pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$")
+              input#email(name="email", type='email', required='', autocomplete='off', pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$")
             .field-wrap
               label
                 | Username
                 span.req *
-              input#username.form-control(name="username", type='text', required='', autocomplete='off')
+              input#username(name="username", type='text', required='', autocomplete='off', pattern="[A-Za-z]{8,}")
             .field-wrap
               label
                 | Set A Password
                 span.req *
-              input#password.form-control(name="password", type='password', required='', autocomplete='off')
+              input#password(name="password", type='password', required='', autocomplete='off')
             .field-wrap
               label
                 | Confirm Password
                 span.req *
-              input#password.form-control(name="password2", type='password', required='', autocomplete='off')
+              input#password(name="password2", type='password', required='', autocomplete='off')
             button.button.button-block(type='submit') Get Started
         
       // tab-content
     // /form
     script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js')
+    script(src='assets/js/vendor/bootstrap.min.js')
     script(src='js/index.js')

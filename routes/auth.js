@@ -6,12 +6,12 @@ var LocalStrategy = require('passport-local').Strategy;
 var User = require('../model/user');
 //register route
 router.get('/register', function(req, res) {
-  res.render('register');a
+  res.redirect('/');
 });
 
 //login
 router.get('/login', function(req, res) {
-  res.render('login');
+  res.redirect('/');
 });
 
 //register user
@@ -27,15 +27,16 @@ router.post('/register', function(req, res) {
   req.checkBody('email', 'Email is required').notEmpty();
 	req.checkBody('email', 'Email is not valid').isEmail();
 	req.checkBody('username', 'Username is required').notEmpty();
+  req.checkBody('username', 'Username cannot contain numbers or special characters').isAlpha();
+  req.checkBody('username', 'Username is short').len(8,20);
 	req.checkBody('password', 'Password is required').notEmpty();
-	req.checkBody('password2', 'Passwords do not match').equals(req.body.password);
+	req.checkBody('password2', 'Passwords do not match').equals(password);
 
   var errors = req.validationErrors();
 
   if(errors){
-		res.render('register',{
-			errors:errors
-		});
+    req.flash('errors', errors);
+		res.redirect('/');
   } else {
     var newUser = new User({
       name: name,
