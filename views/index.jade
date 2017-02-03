@@ -10,10 +10,11 @@ html
   body
     .form
       ul.tab-group
-        li.tab
-          a(href='#signup') Sign Up
-        li.tab.active
-          a(href='#login') Log In
+        if(!user)
+          li.tab
+            a(href='#signup') Sign Up
+          li.tab.active
+            a(href='#login') Log In
       if(errors != "")
         .alert.alert-danger.alert-dismissable(role='alert')
           button.close(type='button', data-dismiss='alert', aria-label='Close')
