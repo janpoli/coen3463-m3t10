@@ -82,8 +82,8 @@ html
               input#email(name="email", type='email', required='', autocomplete='off', pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$")
             .field-wrap
               label
-                | Username
-                span.req *
+                | Username 
+                span.req * (must be 8 characters long)
               input#username(name="username", type='text', required='', autocomplete='off', pattern="[A-Za-z]{8,}")
             .field-wrap
               label
