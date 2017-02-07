@@ -48,8 +48,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 // express session
 app.use(session({
     secret: 'secret',
-    saveUninitialized: true,
-    resave: true
+    saveUninitialized: false,
+    resave: true,
+    cookie: {
+      "maxAge": 86400000,
+    }
 }));
 
 // passport init
