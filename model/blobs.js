@@ -8,4 +8,4 @@ var blobSchema = new mongoose.Schema({
   events_typ: String,
   dob: { type: Date, default: Date.now },
 });
-module.exports = mongoose.model('blob', blobSchema);
+module.exports = mongoose.model('Blob', blobSchema);

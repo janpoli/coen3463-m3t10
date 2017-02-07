@@ -14,7 +14,7 @@ const methodOverride = require('method-override');
 const restify = require('express-restify-mongoose');
 const router = express.Router();
 
-var db = require('./model/db');
+// var db = require('./model/db');
 var blob = require('./model/blobs');
 var mongoose = require('mongoose');
 
