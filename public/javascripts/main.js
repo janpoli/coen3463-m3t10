@@ -26,7 +26,7 @@ if (window.location.pathname === '/blobs') {
       var tbody = document.getElementById('table-body');
       blobs.forEach(function(blob) {
         // tbody.insertAdjacentHTML('beforeend', '<tr> <td>  <input type="checkbox" id="' + contact._id + '" />  </td>  <td>  <a href="/contacts/#' + contact._id + '">' + contact.name + '</a></td> <td> ' + contact.nickname + '</td> <td>' + contact.email + ' </td> </tr>');
-        tbody.insertAdjacentHTML('beforeend', '<li class="list-group-item"><a href="/blobs/'+blob._id+'">'+blob.events_name+'<p> '+ blob.events_date+' | '+blob.events_day+ '</p></li>');
+        tbody.insertAdjacentHTML('beforeend', '<li class="list-group-item"><a href="/blobs/'+blob._id+'">'+blob.events_name+'<p>'+ blob.events_date+' | '+blob.events_day+ '</p></li>');
 
       });
     })
