@@ -10,9 +10,13 @@ var express = require('express'),
     flash = require('connect-flash'),
     LocalStrategy = require('passport-local').Strategy;
 
-var db = require('./model/db'),
-    blob = require('./model/blobs');
+const methodOverride = require('method-override');
+const restify = require('express-restify-mongoose');
+const router = express.Router();
 
+var db = require('./model/db');
+var blob = require('./model/blobs');
+var mongoose = require('mongoose');
 
 var routes = require('./routes/index'),
     blobs = require('./routes/blobs'),
@@ -24,6 +28,10 @@ var routes = require('./routes/index'),
 
 var app = express();
 
+
+var MongoURI = 'mongodb://admin:password@ds111549.mlab.com:11549/coen3463-team10'
+
+// mongoose.connect('mongodb://admin:password@ds111549.mlab.com:11549/coen3463-team10');
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
@@ -34,6 +42,7 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(methodOverride());
 app.use(express.static(path.join(__dirname, 'public')));
 
 // express session
@@ -78,6 +87,18 @@ app.use(function (req, res, next) {
   next();
 }); 
 
+mongoose.connect(MongoURI, function(err, res) {
+     if (err) {
+         console.log('Error connecting to ' + MongoURI);
+     } else {
+         console.log('MongoDB connected!');
+     }
+ });
+ 
+restify.serve(router, blob);
+app.use(router)
+
+
 app.use('/', routes);
 app.use('/blobs', blobs);
 app.use('/users', users);
@@ -115,6 +136,8 @@ app.use(function(err, req, res, next) {
         error: {}
     });
 });
+
+
 
 
 module.exports = app;

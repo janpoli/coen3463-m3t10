@@ -11,11 +11,12 @@ block content
             .row
               .panel-body.text-center
                 ul.list-group
-                 for blob in blobs
-                  li.list-group-item
-                   a(href='/blobs/#{blob._id}') #{blob.events_name}
+                 // for blob in blobs
+                  // li.list-group-item
+                  //  a(href='/blobs/#{blob._id}') #{blob.events_name}
                    
-                   p #{blob.events_date} | #{blob.events_day}
+                  //  p #{blob.events_month} #{blob.events_date} | #{blob.events_day}
+                 li#table-body
             .row
               .p.text-center
                 a.btn.btn-default.width-5(href='/blobs/new') +

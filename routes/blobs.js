@@ -44,6 +44,7 @@ router.route('/')
 
     .post(function(req, res) {
         var events_name = req.body.events_name;
+        var events_month = req.body.events_month;
         var events_date = req.body.events_date;
         var events_day = req.body.events_day;
         var events_cat = req.body.events_cat;
@@ -53,6 +54,7 @@ router.route('/')
 
         mongoose.model('Blob').create({
             events_name: events_name,
+            events_month: events_month,
             events_date: events_date,
             events_day: events_day,
             events_cat: events_cat,
@@ -157,6 +159,7 @@ router.route('/:id/edit')
 
   .put(function(req, res) {
       var events_name = req.body.events_name;
+      var events_month = req.body.events_month;
       var events_date = req.body.events_date;
       var events_day = req.body.events_day;
       var events_cat = req.body.events_cat;
@@ -169,6 +172,7 @@ router.route('/:id/edit')
       mongoose.model('Blob').findById(req.id, function (err, blob) {
           blob.update({
               events_name: events_name,
+              events_month: events_month,
               events_date: events_date,
               events_day: events_day,
               events_cat: events_cat,
