@@ -8,6 +8,17 @@ block content
           .main_contact.sections
             .head_title.text-center.margin-bottom-40
               h1 Events List
+                br
+                br
+
+                nav.transparent
+                  .nav-wrapper
+                    form.white(method= 'post', action= '/', onsubmit= 'getSearch()')
+                      .input-field
+                        input#search(type= 'search', placeholder= 'Search An Event')
+                        label.label-icon(for= 'search')
+                          i.fa.fa-search.small.black-text
+  
             .row
               .panel-body.text-center
                 ul.list-group
