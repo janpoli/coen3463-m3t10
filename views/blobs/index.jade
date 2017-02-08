@@ -10,7 +10,6 @@ block content
               h1 Events List
                 br
                 br
-
                 nav.transparent
                   .nav-wrapper
                     form.white(method= 'post', action= '/blobs/search', onsubmit= 'getSearch()')
@@ -18,6 +17,8 @@ block content
                         input#search(type= 'search', placeholder= 'Search An Event')
                         label.label-icon(for= 'search')
                           i.fa.fa-search.small.black-text
+                br
+                br
                 p#count
             .row
               .panel-body.text-center
