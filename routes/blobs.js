@@ -6,7 +6,7 @@ var express = require('express'),
 
 router.use(function(req, res, next) {
   if (!req.user) {
-    res.redirect('/')
+    res.redirect('/auth/login')
   }
   next();
 });
@@ -20,6 +20,9 @@ router.use(methodOverride(function(req, res){
       }
 }))
 
+router.post('/search', function(req, res){
+  res.redirect('/blobs')
+});
 
 router.route('/')
     .get(function(req, res, next) {

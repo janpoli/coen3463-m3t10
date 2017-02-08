@@ -13,12 +13,12 @@ block content
 
                 nav.transparent
                   .nav-wrapper
-                    form.white(method= 'post', action= '/', onsubmit= 'getSearch()')
+                    form.white(method= 'post', action= '/blobs/search', onsubmit= 'getSearch()')
                       .input-field
                         input#search(type= 'search', placeholder= 'Search An Event')
                         label.label-icon(for= 'search')
                           i.fa.fa-search.small.black-text
-  
+                p#count
             .row
               .panel-body.text-center
                 ul.list-group
