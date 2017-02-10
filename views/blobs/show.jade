@@ -36,7 +36,10 @@ block content
                             td #{blob.events_typ} 
                           tr
                             th Create Date
-                            td #{blob.dob} 
+                            td #{moment(blob.dob).format("LLL")} 
+                          tr
+                            th Update Date
+                            td #{blob.updatedate} 
 
 
                 // End of col-sm-6

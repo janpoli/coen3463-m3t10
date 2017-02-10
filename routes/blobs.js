@@ -3,6 +3,7 @@ var express = require('express'),
     mongoose = require('mongoose'),
     bodyParser = require('body-parser'),
     methodOverride = require('method-override');
+var moment = require('moment-timezone');
 
 router.use(function(req, res, next) {
   if (!req.user) {
@@ -52,7 +53,7 @@ router.route('/')
         var events_day = req.body.events_day;
         var events_cat = req.body.events_cat;
         var events_typ = req.body.events_typ;
-        var dob = req.body.dob;
+        var dob = moment().tz("Asia/Manila").format('LLL');
 
 
         mongoose.model('Blob').create({
@@ -63,7 +64,6 @@ router.route('/')
             events_cat: events_cat,
             events_typ: events_typ,
             dob : dob,
-
         }, function (err, blob) {
               if (err) {
                   res.send("There was a problem adding the information to the database.");
@@ -124,7 +124,8 @@ router.route('/:id')
           html: function(){
               res.render('blobs/show', {
                 "blobdob" : blobdob,
-                "blob" : blob
+                "blob" : blob,
+                moment: moment,
               });
           },
           json: function(){
@@ -167,7 +168,7 @@ router.route('/:id/edit')
       var events_day = req.body.events_day;
       var events_cat = req.body.events_cat;
       var events_typ = req.body.events_typ;
-      var dob = req.body.dob;
+      var updatedate = moment().tz("Asia/Manila").format('LLL');
 
 
 
@@ -180,7 +181,7 @@ router.route('/:id/edit')
               events_day: events_day,
               events_cat: events_cat,
               events_typ: events_typ,
-              dob : dob,
+              updatedate: updatedate,
 
           }, function (err, blobID) {
             if (err) {

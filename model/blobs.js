@@ -6,6 +6,7 @@ var blobSchema = new mongoose.Schema({
   events_day: String,
   events_cat: String,
   events_typ: String,
-  dob: { type: Date, default: Date.now },
+  dob: Date,
+  updatedate: String,
 });
 module.exports = mongoose.model('Blob', blobSchema);
