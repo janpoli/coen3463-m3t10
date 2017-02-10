@@ -55,7 +55,7 @@ if (window.location.pathname === '/blobs') {
           document.getElementById('count').insertAdjacentHTML('beforeend', '<h1>Found '+blobs.length+' events.</h1>');
         }
         blobs.forEach(function(blob) {
-          document.getElementById('table-body').insertAdjacentHTML('beforeend', '<li class="list-group-item"><a href="/blobs/'+blob._id+'">'+blob.events_name+'<p>'+ blob.events_date+' | '+blob.events_day+ '</p></li>');
+          document.getElementById('table-body').insertAdjacentHTML('beforeend', '<li class="list-group-item"><a href="/blobs/'+blob._id+'">'+blob.events_name+'<p>'+ blob.events_month +' '+ blob.events_date+' | '+blob.events_day+ '</p></li>');
         });
         
       });
